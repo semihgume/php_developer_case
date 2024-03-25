@@ -1,0 +1,15 @@
+CREATE TABLE Posts (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR NOT NULL,
+    body VARCHAR NOT NULL
+);
+
+CREATE TABLE Comments (
+    id SERIAL PRIMARY KEY,
+    post_id INT NOT NULL,
+    name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    body VARCHAR NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES Posts(id)
+);
